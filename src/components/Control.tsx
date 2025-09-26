@@ -1,14 +1,14 @@
 import { useState } from "react";
 type ControlProps = {
-  findQuery: (query: string) => void | Promise<void>;
+  onSearch: (query: string) => void | Promise<void>;
 }
 
-export default function Control({findQuery}: ControlProps) {
+export default function Control({onSearch}: ControlProps) {
 const [query, setQuery] = useState('');
 
   const handleClick = () => {
-    findQuery(query);
-  }
+    onSearch(query); 
+  } 
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(e.target.value);
