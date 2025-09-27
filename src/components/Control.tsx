@@ -3,7 +3,7 @@ type ControlProps = {
   onSearch: (query: string) => void | Promise<void>;
 }
 
-export default function Control({onSearch}: ControlProps) {
+export default function Control({ onSearch }: ControlProps) {
 const [query, setQuery] = useState('');
 
   const handleClick = () => {

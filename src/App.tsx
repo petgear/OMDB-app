@@ -4,6 +4,7 @@ import Control from "./components/Control";
 import MovieList from "./components/MovieList";
 import MovieModal from "./components/MovieModal";
 import type { Movie } from "./components/types";
+import AutoComplete from "./components/Autocomplete";
 
 export default function App() {
   const [movies, setMovies] = useState<Movie[]>([]);
@@ -44,7 +45,8 @@ export default function App() {
         findQuery(currentQuery, nextPage);
         }}
        />
-      <Control onSearch={handleSearch} />
+      {/* <Control onSearch={handleSearch} /> */}
+      <AutoComplete onSearch={handleSearch} />
       {selectedMovie && (
         <MovieModal
         selectedMovie={selectedMovie}
