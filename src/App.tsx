@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import './App.css'
-import Control from "./components/Control";
 import MovieList from "./components/MovieList";
 import MovieModal from "./components/MovieModal";
 import type { Movie } from "./components/types";
@@ -45,7 +44,6 @@ export default function App() {
         findQuery(currentQuery, nextPage);
         }}
        />
-      {/* <Control onSearch={handleSearch} /> */}
       <AutoComplete onSearch={handleSearch} />
       {selectedMovie && (
         <MovieModal

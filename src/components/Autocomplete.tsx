@@ -1,4 +1,5 @@
 import { useState, useMemo } from "react";
+import type { Movie } from "./types";
 
 type Suggestion = {
   id: string;
@@ -18,7 +19,7 @@ export default function AutoComplete({onSearch}: AutoCompleteProps) {
     const res = await fetch(url);
     const data = await res.json();
     if (data.Response === "True" && data.Search) {
-    setSuggestions(data.Search.map((m: any)=> ({
+    setSuggestions(data.Search.map((m: Movie)=> ({
       id: m.imdbID,
       label: m.Title,
     })));
@@ -27,7 +28,6 @@ export default function AutoComplete({onSearch}: AutoCompleteProps) {
   }
 }
   
-
   const debounce = <T extends (...args: any[]) => void>(fn: T, delay: number) => {
     let timeoutId: ReturnType<typeof setTimeout>;
     return (...args: Parameters<T>) => {
@@ -64,18 +64,17 @@ export default function AutoComplete({onSearch}: AutoCompleteProps) {
   return (
     <div className="control-div">
       <button 
-      onClick={handleSearchClick}
-      >
-        Поиск</button>
+      onClick={handleSearchClick}>Поиск</button>
     <input
     value={query}
     onChange={(e) => handleChange(e.target.value)}
-    className=""
+    className="find-btn"
     />
     <ul>
       {suggestions.map((s) => (
         <li
          key={s.id}
+         className="suggestion-li"
          onClick={() => handleSuggestionClick(s)}>
           {s.label}
           </li>
