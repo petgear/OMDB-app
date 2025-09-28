@@ -25,6 +25,7 @@ export default function MovieList({movies, onSelect, onReachEnd}: MovieListProps
   }, [movies])
 
     const cap = "/cap.png"
+    
     return (
     <ul>
       {movies.map((movie, index) => (

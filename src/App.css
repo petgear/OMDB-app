@@ -5,41 +5,6 @@
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
 
 /* контейнер для модалки */
 .modal {
@@ -69,6 +34,7 @@
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
   z-index: 1001;
   text-align: center;
+  justify-self: center;
 }
 
 /* заголовок */
@@ -96,15 +62,77 @@
   color: #fff;
   border: none;
   border-radius: 50%;
-  width: 28px;
-  height: 28px;
-  font-size: 16px;
   cursor: pointer;
-  line-height: 28px;
   text-align: center;
   transition: background 0.2s;
+  
 }
 
 .modal-close-btn:hover {
   background: #c1121f;
+}
+
+.modal-year {
+
+}
+.modal-genre {
+
+}
+
+.modal-plot {
+
+}
+
+.movie-li {
+  background: #f9f9f9;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: center;
+}
+.movie-article {
+
+}
+.movie-title {
+
+}
+.movie-poster {
+
+}
+.movie-year {
+
+}
+
+.control-div {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  z-index: 1000;
+  background: #fff; 
+}
+.finder-input {
+  width: 90%;
+}
+.find-btn {
+  padding: 3px 3px;
+  
+}
+.suggestion-li {
+
+}
+
+.suggestion-ul {
+
+}
+
+.poster-cap {
+  width: 200px;
+  height: 300px;
+  object-fit: contain; /* чтобы заглушка влезла */
+  background: #eee;    /* серый фон */
+  border-radius: 8px; 
 }

@@ -10,14 +10,20 @@ export default function App() {
   const [page, setPage] = useState(1); 
   const [selectedMovie, setSelectedMovie] = useState<Movie | null>(null);
   const [currentQuery, setCurrentQuery] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const findQuery = async (query: string, page: number) => {
+    setLoading(true);
+    try {
     const url = `https://www.omdbapi.com/?apikey=eefdbc41&s=${query}&type=movie&page=${page}`;
     const res = await fetch(url);
     const data = await res.json();
     if (data.Response === 'True' && data.Search) {
       if (page === 1) setMovies(data.Search);
       else setMovies(prev => [...prev, ...data.Search]);
+    }
+    } finally {
+      setLoading(false);
     }
   }
   
@@ -35,6 +41,7 @@ export default function App() {
 
   return (
     <div>
+      {loading && <p>Загрузка...</p>}
       <MovieList
        movies={movies}
        onSelect={(id) => loadCurrentMovie(id) }

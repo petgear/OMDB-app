@@ -62,15 +62,18 @@ export default function AutoComplete({onSearch}: AutoCompleteProps) {
   }
 
   return (
-    <div className="control-div">
-      <button 
-      onClick={handleSearchClick}>Поиск</button>
-    <input
-    value={query}
-    onChange={(e) => handleChange(e.target.value)}
-    className="find-btn"
-    />
-    <ul>
+    <>
+      <div className="control-div">
+        <input
+        value={query}
+        onChange={(e) => handleChange(e.target.value)}
+        className="finder-input"
+        />
+        
+        <button 
+          onClick={handleSearchClick} className="find-btn">Поиск</button>
+    </div>
+    <ul className="suggestion-ul">
       {suggestions.map((s) => (
         <li
          key={s.id}
@@ -80,6 +83,6 @@ export default function AutoComplete({onSearch}: AutoCompleteProps) {
           </li>
       ))}
     </ul>
-    </div>
+    </>
   );
 }
