@@ -27,20 +27,56 @@ export default function MovieList({movies, onSelect, onReachEnd}: MovieListProps
     const cap = "/cap.png"
     
     return (
-    <ul>
-      {movies.map((movie, index) => (
-      <li 
-      key={movie.imdbID}
-      ref={index === movies.length - 1 ? lastMovieRef : null}
-      className="movie-li"
-      >
-        <article className="movie-article" onClick={() => {onSelect(movie.imdbID)}}>
-        <p className="movie-title">{movie.Title}</p>
-        <img src={movie.Poster} className="movie-poster" onError={(e) => {e.currentTarget.src = cap}}/>
-        <p className="movie-year">{movie.Year}</p>
-        </article>
-      </li>
-    ))} 
-    </ul>
+      <ul className="grid grid-cols-3 gap-4 p-10">
+        {movies.map((movie, index) => (
+        <li 
+          key={movie.imdbID}
+          ref={index === movies.length - 1 ? lastMovieRef : null}
+          className="
+            bg-zinc-900
+            rounded-lg
+            overflow-hidden
+            shadow
+            hover:shadow-lg
+            transition-shadow
+            cursor-pointer
+            
+          "
+        >
+          <article className="
+            flex
+            flex-col
+            items-center
+            p-4
+            text-center
+          "
+          onClick={() => {onSelect(movie.imdbID)}}>
+            <p className="
+              text-white
+              font-semibold
+              mb-1
+              truncate
+              "
+            >
+            {movie.Title}</p>
+            <img src={movie.Poster}
+            className="
+              w-full
+              aspect-[2/3]
+              object-cover
+              mb-2
+              rounded-md
+            " 
+            onError={(e) => {e.currentTarget.src = cap}}/>
+            <p className="
+              text-zinc-400
+              text-sm
+              "
+            >
+            {movie.Year}</p>
+          </article>
+        </li>
+      ))} 
+      </ul>
     )  
   }
