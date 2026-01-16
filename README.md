@@ -24,6 +24,7 @@
 - Дебаунс для оптимизации запросов
 
 ## Структура проекта
+```text
 src/
 ├─ components/
 │ ├─ AutoComplete.tsx # Поисковая строка с автодополнением
@@ -31,10 +32,10 @@ src/
 │ ├─ MovieModal.tsx # Модальное окно с подробностями фильма
 ├─ types.ts # Типы данных (Movie)
 └─ App.tsx
-
+```
 
 ## Установка и запуск
-```bash
+```
 git clone https://github.com/petgear/OMDB-app
 cd movie-search-app
 npm install
