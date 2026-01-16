@@ -40,6 +40,7 @@ export default function App() {
   }
 
   return (
+    
     <div>
       {loading && <p>Загрузка...</p>}
       <MovieList
@@ -58,6 +59,7 @@ export default function App() {
         onClose={() => {setSelectedMovie(null)}}
         />
       )}
+      
     </div>
   );
 }
